@@ -23,44 +23,45 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kXS-8R-gmf">
-                                <rect key="frame" x="20" y="57" width="560" height="482"/>
-                                <color key="backgroundColor" red="0.69766748360246522" green="0.85284558551501888" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VKl-g0-7fo">
+                                <rect key="frame" x="180" y="57" width="240" height="368"/>
+                                <color key="backgroundColor" red="0.83445197402927462" green="0.92767210481925921" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="368" id="CJ6-0W-L4A"/>
+                                    <constraint firstAttribute="width" constant="240" id="zlJ-oI-BWX"/>
+                                </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldr-IZ-9Bi">
-                                <rect key="frame" x="20" y="556" width="130" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="br2-tE-HUI">
+                                <rect key="frame" x="20" y="555" width="130" height="30"/>
                                 <state key="normal" title="Start Record Video"/>
                                 <connections>
-                                    <action selector="startRecordVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k4J-ZN-fLH"/>
+                                    <action selector="startRecordVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tTm-KF-Gag"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2GV-Ox-WJe">
-                                <rect key="frame" x="443" y="556" width="137" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ue4-tc-3v2">
+                                <rect key="frame" x="443" y="555" width="137" height="30"/>
                                 <state key="normal" title="Finish Record Video"/>
                                 <connections>
-                                    <action selector="finishRecordVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vhf-Ed-22D"/>
+                                    <action selector="finishRecordVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LjL-TJ-bD7"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.79303639391441227" blue="0.71201098908100713" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="jMu-Sj-bEa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="19y-wR-0Ja"/>
-                            <constraint firstItem="kXS-8R-gmf" firstAttribute="top" secondItem="jMu-Sj-bEa" secondAttribute="bottom" constant="8" id="2ko-Hx-3CP"/>
-                            <constraint firstItem="kXS-8R-gmf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="5C0-M9-1Dc"/>
-                            <constraint firstItem="ldr-IZ-9Bi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="7YQ-ND-0Dd"/>
-                            <constraint firstAttribute="trailing" secondItem="kXS-8R-gmf" secondAttribute="trailing" constant="20" id="Bgq-Ju-nWk"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2GV-Ox-WJe" secondAttribute="bottom" constant="14" id="JPy-yp-mYI"/>
-                            <constraint firstItem="2GV-Ox-WJe" firstAttribute="top" secondItem="kXS-8R-gmf" secondAttribute="bottom" constant="17" id="OYL-gY-aHO"/>
+                            <constraint firstItem="br2-tE-HUI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="Gfw-tM-udA"/>
+                            <constraint firstAttribute="trailing" secondItem="ue4-tc-3v2" secondAttribute="trailing" constant="20" id="Jbe-tM-KcK"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="br2-tE-HUI" secondAttribute="bottom" constant="15" id="K68-DF-vOf"/>
                             <constraint firstItem="jMu-Sj-bEa" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="PFk-Dm-bwn"/>
-                            <constraint firstItem="kXS-8R-gmf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Q67-tY-rKP"/>
-                            <constraint firstAttribute="trailing" secondItem="2GV-Ox-WJe" secondAttribute="trailing" constant="20" id="Zaj-kR-Kd6"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ldr-IZ-9Bi" secondAttribute="bottom" constant="14" id="w3r-LN-7Qk"/>
+                            <constraint firstItem="VKl-g0-7fo" firstAttribute="top" secondItem="jMu-Sj-bEa" secondAttribute="bottom" constant="8" id="PZF-wv-Ul9"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ue4-tc-3v2" secondAttribute="bottom" constant="15" id="fOF-th-Ui1"/>
+                            <constraint firstItem="VKl-g0-7fo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="s1q-oc-E6l"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="cameraView" destination="kXS-8R-gmf" id="CXs-Ah-XSj"/>
-                        <outlet property="finishRecordVideoBtn" destination="2GV-Ox-WJe" id="nJk-DE-jXL"/>
-                        <outlet property="startRecordVideoBtn" destination="ldr-IZ-9Bi" id="Lk7-f0-739"/>
+                        <outlet property="cameraView" destination="VKl-g0-7fo" id="r2m-uw-2FV"/>
+                        <outlet property="finishRecordVideoBtn" destination="ue4-tc-3v2" id="N1h-Ql-fnp"/>
+                        <outlet property="startRecordVideoBtn" destination="br2-tE-HUI" id="uEh-lf-JXk"/>
                         <outlet property="videoCaptureStatusLabel" destination="jMu-Sj-bEa" id="Kzv-lm-ANt"/>
                     </connections>
                 </viewController>

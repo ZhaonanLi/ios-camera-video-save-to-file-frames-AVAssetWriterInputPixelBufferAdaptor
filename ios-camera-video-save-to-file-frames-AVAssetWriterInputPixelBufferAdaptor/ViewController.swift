@@ -13,6 +13,10 @@ import AVFoundation
 
 class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
 
+    // Note:
+    // The video's width should be multiple of 16, the height should also be the multiple of 16,
+    // otherwise there will be the bright green border appearing in video.
+    
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var videoCaptureStatusLabel: UILabel!
     @IBOutlet weak var startRecordVideoBtn: UIButton!
@@ -152,6 +156,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             kCVPixelBufferWidthKey as String: NSNumber(int: Int32(self.cameraView.bounds.width)),
             kCVPixelBufferHeightKey as String: NSNumber(int: Int32(self.cameraView.bounds.height))
         ]
+
         
         self.videoWriterInputPixelBufferAdaptor = AVAssetWriterInputPixelBufferAdaptor(
             assetWriterInput: self.videoWriterInput!,
