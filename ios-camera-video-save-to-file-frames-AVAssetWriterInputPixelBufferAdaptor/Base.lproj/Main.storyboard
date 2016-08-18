@@ -25,7 +25,7 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kXS-8R-gmf">
                                 <rect key="frame" x="20" y="57" width="560" height="482"/>
-                                <color key="backgroundColor" red="0.78704770478509378" green="1" blue="0.93946699850273518" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.69766748360246522" green="0.85284558551501888" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldr-IZ-9Bi">
                                 <rect key="frame" x="20" y="556" width="130" height="30"/>
@@ -42,7 +42,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.80942068898698682" green="1" blue="0.75241073753976573" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.79303639391441227" blue="0.71201098908100713" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="jMu-Sj-bEa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="19y-wR-0Ja"/>
                             <constraint firstItem="kXS-8R-gmf" firstAttribute="top" secondItem="jMu-Sj-bEa" secondAttribute="bottom" constant="8" id="2ko-Hx-3CP"/>
