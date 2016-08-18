@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ios_camera_video_save_to_file_frames_AVAssetWriterInputPixelBufferAdaptor" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,57 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Previewing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMu-Sj-bEa">
+                                <rect key="frame" x="258" y="28" width="84" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kXS-8R-gmf">
+                                <rect key="frame" x="20" y="57" width="560" height="482"/>
+                                <color key="backgroundColor" red="0.78704770478509378" green="1" blue="0.93946699850273518" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldr-IZ-9Bi">
+                                <rect key="frame" x="20" y="556" width="130" height="30"/>
+                                <state key="normal" title="Start Record Video"/>
+                                <connections>
+                                    <action selector="startRecordVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k4J-ZN-fLH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2GV-Ox-WJe">
+                                <rect key="frame" x="443" y="556" width="137" height="30"/>
+                                <state key="normal" title="Finish Record Video"/>
+                                <connections>
+                                    <action selector="finishRecordVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vhf-Ed-22D"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.80942068898698682" green="1" blue="0.75241073753976573" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="jMu-Sj-bEa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="19y-wR-0Ja"/>
+                            <constraint firstItem="kXS-8R-gmf" firstAttribute="top" secondItem="jMu-Sj-bEa" secondAttribute="bottom" constant="8" id="2ko-Hx-3CP"/>
+                            <constraint firstItem="kXS-8R-gmf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="5C0-M9-1Dc"/>
+                            <constraint firstItem="ldr-IZ-9Bi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="7YQ-ND-0Dd"/>
+                            <constraint firstAttribute="trailing" secondItem="kXS-8R-gmf" secondAttribute="trailing" constant="20" id="Bgq-Ju-nWk"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2GV-Ox-WJe" secondAttribute="bottom" constant="14" id="JPy-yp-mYI"/>
+                            <constraint firstItem="2GV-Ox-WJe" firstAttribute="top" secondItem="kXS-8R-gmf" secondAttribute="bottom" constant="17" id="OYL-gY-aHO"/>
+                            <constraint firstItem="jMu-Sj-bEa" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="PFk-Dm-bwn"/>
+                            <constraint firstItem="kXS-8R-gmf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Q67-tY-rKP"/>
+                            <constraint firstAttribute="trailing" secondItem="2GV-Ox-WJe" secondAttribute="trailing" constant="20" id="Zaj-kR-Kd6"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ldr-IZ-9Bi" secondAttribute="bottom" constant="14" id="w3r-LN-7Qk"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cameraView" destination="kXS-8R-gmf" id="CXs-Ah-XSj"/>
+                        <outlet property="finishRecordVideoBtn" destination="2GV-Ox-WJe" id="nJk-DE-jXL"/>
+                        <outlet property="startRecordVideoBtn" destination="ldr-IZ-9Bi" id="Lk7-f0-739"/>
+                        <outlet property="videoCaptureStatusLabel" destination="jMu-Sj-bEa" id="Kzv-lm-ANt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="484" y="369"/>
         </scene>
     </scenes>
 </document>
