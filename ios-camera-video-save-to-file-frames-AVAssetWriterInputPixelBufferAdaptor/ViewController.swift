@@ -96,8 +96,10 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     
     
     
+    
+    
+    
     @IBAction func startRecordVideo(sender: AnyObject) {
-        
         let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
         self.videoOutputFullFileName = documentsPath.stringByAppendingString("/test_camera_capture_video.m4v")
         
@@ -122,8 +124,8 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             print("DEBUG:::The file \(self.videoOutputFullFileName!) not exists")
         }
         
-        
-        // AVVideoAverageBitRateKey is for pecifying a key to access the average bit rate (as bits per second) used in encoding.
+        // AVVideoAverageBitRateKey is for specifying a key to access the average bit rate (as bits per second) 
+        // used in encoding.
         // This video shoule be video size * a float number, and here 10.1 is equal to AVCaptureSessionPresetHigh.
         let videoCompressionPropertys = [
             AVVideoAverageBitRateKey: self.cameraView.bounds.width * self.cameraView.bounds.height * 10.1
@@ -141,36 +143,16 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         self.videoWriterInput!.expectsMediaDataInRealTime = true
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        // kCVPixelFormatType_32BGRA
-        
         let sourcePixelBufferAttributes = [
             kCVPixelBufferPixelFormatTypeKey as String: NSNumber(unsignedInt: kCVPixelFormatType_32ARGB),
             kCVPixelBufferWidthKey as String: NSNumber(int: Int32(self.cameraView.bounds.width)),
             kCVPixelBufferHeightKey as String: NSNumber(int: Int32(self.cameraView.bounds.height))
         ]
-
         
         self.videoWriterInputPixelBufferAdaptor = AVAssetWriterInputPixelBufferAdaptor(
             assetWriterInput: self.videoWriterInput!,
             sourcePixelBufferAttributes: sourcePixelBufferAttributes
         )
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         do {
             self.videoWriter = try AVAssetWriter(URL: NSURL(fileURLWithPath: self.videoOutputFullFileName!), fileType: AVFileTypeMPEG4)
@@ -193,15 +175,13 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             let hasStartedWriting = self.videoWriter!.startWriting()
             if hasStartedWriting {
                 // If we want to calculate presentationTime based on the frames by ourself, here we should use kCMTimeZero.
-//                self.videoWriter!.startSessionAtSourceTime(self.lastSampleTime)
+                // self.videoWriter!.startSessionAtSourceTime(self.lastSampleTime)
                 self.videoWriter!.startSessionAtSourceTime(kCMTimeZero)
                 print("DEBUG:::Have started writting on videoWriter, session at source time: \(self.lastSampleTime)")
             } else {
                 print("WARN:::Fail to start writing on videoWriter")
             }
-            
-            
-            
+
         } else {
             print("WARN:::The videoWriter.status is writting now, so cannot start writing action on videoWriter")
         }
@@ -338,51 +318,11 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         self.glView.display()
         
         
-        
-        
-
-        
-            
-        
-        
-        
-        
-//        let transformedCVImageBuffer: CVPixelBufferRef = ciContext.render(transformedCIImage, toCVPixelBuffer: &transformedPixelBuffer)
-        
-        
-        
-        
-//        self.lastSampleTime = CMSampleBufferGetPresentationTimeStamp(sampleBuffer);
+        // self.lastSampleTime = CMSampleBufferGetPresentationTimeStamp(sampleBuffer);
         
         
         // Append the sampleBuffer into videoWriterInput
         if self.isRecordingVideo {
-//            if self.videoWriterInput!.readyForMoreMediaData {
-//                
-//                if self.videoWriter!.status == AVAssetWriterStatus.Writing {
-//                    let whetherAppendSampleBuffer = self.videoWriterInput!.appendSampleBuffer(sampleBuffer)
-//                    
-//                    print(">>>>>>>>>>>>>The time::: \(self.lastSampleTime.value)/\(self.lastSampleTime.timescale)")
-//                    
-//                    if whetherAppendSampleBuffer {
-//                        print("DEBUG::: Append sample buffer successfully")
-//                    } else {
-//                        print("WARN::: Append sample buffer failed")
-//                    }
-//                } else {
-//                    print("WARN:::The videoWriter status is not writing")
-//                }
-//                
-//                
-//            } else {
-//                print("WARN:::Cannot append sample buffer into videoWriterInput")
-//            }
-
-            
-            
-            
-            
-            
             if self.videoWriterInputPixelBufferAdaptor!.assetWriterInput.readyForMoreMediaData {
                 // fps means the number of frames per second.
                 // If the fps is higher, the speed of the video is faster.
@@ -391,11 +331,6 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
                 let frameDuration = CMTimeMake(1, fps)
                 let lastFrameTime = CMTimeMake(self.frameCount, fps)
                 let presentationTime = self.frameCount == 0 ? lastFrameTime : CMTimeAdd(lastFrameTime, frameDuration)
-                
-//                print("DEBUG>>>>>>>>>>>>right frame time=\(self.lastSampleTime), current frame time=\(presentationTime)")
-                
-                
-//                transformedCIImage = ciImage
                 
                 var transformedPixelBuffer: CVPixelBuffer?
                 let status = CVPixelBufferCreate(
@@ -441,8 +376,6 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
                 
                 CVPixelBufferUnlockBaseAddress(transformedPixelBuffer!, 0)
                 
-                
-                
                 let whetherPixelBufferAppendedtoAdaptor = self.videoWriterInputPixelBufferAdaptor!.appendPixelBuffer(transformedPixelBuffer!, withPresentationTime: presentationTime)
             
                 if whetherPixelBufferAppendedtoAdaptor {
@@ -451,7 +384,6 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
                     print("WARN:::PixelBuffer appended adapotr failed")
                 }
             
-            
                 self.frameCount += 1
             
                 print("DEBUG:::The current frame counter = \(self.frameCount)")
@@ -459,10 +391,6 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
                 print("WARN:::The assetWriterInput is not ready")
             }
         }
-        
-        
-        
-        
     }
     
     // Implement the delegate method
